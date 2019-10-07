@@ -15,6 +15,21 @@ void bsearch(int arr[],int key,int st,int en)
 		bsearch(arr,key,mid+1,en);
 }
 
+int good_bsearch(int arr[],int key,int st,int en)
+{
+	if(st<=en)
+	{
+		int mid=st+(en-1)/2;
+		if(arr[mid]==key)
+			return mid;
+		if(arr[mid]>key)
+			return good_bsearch(arr,key,st,mid-1);
+		else
+			return good_bsearch(arr,key,mid+1,en);
+	}
+	return -1;
+}
+
 int main()
 {
 	int n;
@@ -25,4 +40,6 @@ int main()
 		cin>>arr[i];
 	cin>>key;
 	bsearch(arr,key,0,n-1);
+
+	cout<<"Found at "<<good_bsearch(arr,key,0,n-1)<<" by good_bsearch fumction"<<endl;
 }
