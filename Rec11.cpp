@@ -17,6 +17,8 @@ void bubble_sort(int arr[],int n)
     bubble_sort(arr,n-1);
 }
 
+/*
+//This function is entirely based on recursion
 void advanced_bubble_sort(int arr[],int n,int j)
 {
 	if(n==1)
@@ -28,6 +30,7 @@ void advanced_bubble_sort(int arr[],int n,int j)
 	advanced_bubble_sort(arr,n,j+1);
 	return;
 }
+*/
 
 int main()
 {
