@@ -1,25 +1,26 @@
-// Tower of Hanoi by recursion
+// Permutaions a string by recursion
 #include<bits/stdc++.h>
 using namespace std;
 
-void toh(char src,char dest,char temp,int n)
+void generate_permutation(char*in,int i)
 {
-	if(n==0)
-		return;
-
-	toh(src,temp,dest,n-1);
-	cout<<"Move "<<n<<" disk from "<<src<<" to "<<dest<<endl;
-    toh(temp,dest,src,n-1);
+	if(in[i]=='\0')
+		{
+			cout<<in<<endl;
+			return;
+		}
+	for(int j=i;in[j]!='\0';j++)
+	{
+		swap(in[i],in[j]);
+		generate_permutation(in,i+1);
+		swap(in[i],in[j]);
+	}
 
 }
 
 int main()
 {
-	int n;
-	cin>>n;
-	char a,b,c;
-	a='A';
-	b='B';
-	c='C';
-	toh(a,c,b,n);
+	char s[100];
+	cin>>s;
+	generate_permutation(s,0);
 }
